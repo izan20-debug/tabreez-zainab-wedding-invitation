@@ -1,0 +1,406 @@
+
+/* =========================================
+   RESPONSIVE DESIGN
+   Mobile, Tablet and Desktop
+========================================= */
+
+
+/* TABLETS */
+
+@media screen and (max-width: 992px) {
+
+    .section-spacing {
+        padding: 60px 4%;
+    }
+
+    .invitation-container {
+        padding: 65px 40px;
+    }
+
+    .couple-content {
+        gap: 30px;
+    }
+
+    .nikah-details {
+        gap: 35px;
+    }
+
+    .section-heading h2 {
+        letter-spacing: 6px;
+    }
+
+}
+
+
+/* MOBILE DEVICES */
+
+@media screen and (max-width: 768px) {
+
+    .section-spacing {
+        padding: 45px 18px;
+    }
+
+    .invitation-container {
+        padding: 65px 25px;
+
+        border-radius: 20px;
+    }
+
+    .decorative-container::before {
+        inset: 9px;
+        border-radius: 13px;
+    }
+
+    .corner {
+        width: 27px;
+        height: 27px;
+    }
+
+    .corner-tl {
+        top: 16px;
+        left: 16px;
+    }
+
+    .corner-tr {
+        top: 16px;
+        right: 16px;
+    }
+
+    .corner-bl {
+        bottom: 16px;
+        left: 16px;
+    }
+
+    .corner-br {
+        bottom: 16px;
+        right: 16px;
+    }
+
+
+    /* Opening screen */
+
+    .opening-circle {
+        width: 185px;
+        height: 185px;
+    }
+
+    .opening-bismillah {
+        font-size: 36px;
+    }
+
+    .opening-text {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+
+
+    /* Welcome */
+
+    .arabic-bismillah {
+        font-size: 42px;
+        line-height: 1.8;
+    }
+
+    .translation {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .greeting-heading {
+        font-size: 53px;
+    }
+
+    .greeting-subtitle {
+        font-size: 23px;
+    }
+
+    .invitation-message {
+        font-size: 21px;
+        line-height: 1.7;
+    }
+
+    .ornament-divider {
+        gap: 14px;
+        margin: 23px auto;
+    }
+
+    .ornament-divider span {
+        width: 65px;
+    }
+
+
+    /* Section headings */
+
+    .section-heading h2 {
+        font-size: 25px;
+        letter-spacing: 4px;
+        line-height: 1.5;
+    }
+
+
+    /* Quran */
+
+    .arabic-ayah {
+        font-size: 34px;
+        line-height: 2;
+        margin-bottom: 28px;
+    }
+
+    .english-ayah {
+        font-size: 23px;
+        line-height: 1.7;
+    }
+
+    .ayah-reference {
+        font-size: 19px;
+        letter-spacing: 3px;
+    }
+
+
+    /* Couple */
+
+    .couple-content {
+        flex-direction: column;
+        gap: 30px;
+
+        margin-top: 40px;
+    }
+
+    .person {
+        width: 100%;
+    }
+
+    .person h3 {
+        font-size: 43px;
+    }
+
+    .couple-symbol {
+        width: 48px;
+        height: 48px;
+    }
+
+    .couple-symbol span {
+        font-size: 29px;
+    }
+
+    .couple-message {
+        font-size: 20px;
+        line-height: 1.6;
+
+        margin-top: 35px;
+    }
+
+
+    /* Nikah */
+
+    .nikah-intro {
+        font-size: 20px;
+        line-height: 1.6;
+    }
+
+    .nikah-details {
+        flex-direction: column;
+        gap: 25px;
+
+        margin: 40px auto;
+    }
+
+    .detail-separator {
+        width: 70px;
+        height: 1px;
+    }
+
+    .detail-item h3 {
+        font-size: 30px;
+    }
+
+    .calendar-button {
+        padding: 15px 18px;
+
+        font-size: 9px;
+        letter-spacing: 1.3px;
+    }
+
+
+    /* Venue */
+
+    .venue-content h3 {
+        font-size: 33px;
+    }
+
+    .venue-content p {
+        font-size: 21px;
+        line-height: 1.6;
+    }
+
+
+    /* Final blessing */
+
+    .arabic-hadith {
+        font-size: 34px;
+        line-height: 2;
+    }
+
+    .english-hadith {
+        font-size: 23px;
+        line-height: 1.7;
+    }
+
+    .hadith-reference {
+        font-size: 17px;
+        letter-spacing: 3px;
+        line-height: 1.8;
+    }
+
+    .final-message {
+        font-size: 21px;
+        line-height: 1.8;
+    }
+
+    .couple-signature {
+        font-size: 21px;
+        letter-spacing: 3px;
+    }
+
+}
+
+
+/* SMALL MOBILE DEVICES */
+
+@media screen and (max-width: 480px) {
+
+    .section-spacing {
+        padding: 32px 12px;
+    }
+
+    .invitation-container {
+        padding: 55px 19px;
+    }
+
+    .opening-circle {
+        width: 165px;
+        height: 165px;
+    }
+
+    .opening-bismillah {
+        font-size: 32px;
+    }
+
+    .opening-text {
+        font-size: 16px;
+    }
+
+    .arabic-bismillah {
+        font-size: 35px;
+    }
+
+    .translation {
+        font-size: 17px;
+    }
+
+    .greeting-heading {
+        font-size: 43px;
+    }
+
+    .greeting-subtitle {
+        font-size: 20px;
+    }
+
+    .invitation-message {
+        font-size: 19px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+        letter-spacing: 2.5px;
+    }
+
+    .arabic-ayah {
+        font-size: 29px;
+    }
+
+    .english-ayah {
+        font-size: 21px;
+    }
+
+    .ayah-reference {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+
+    .person h3 {
+        font-size: 37px;
+    }
+
+    .family-label {
+        font-size: 17px;
+    }
+
+    .father-name {
+        font-size: 21px;
+    }
+
+    .detail-item h3 {
+        font-size: 27px;
+    }
+
+    .arabic-hadith {
+        font-size: 29px;
+    }
+
+    .english-hadith {
+        font-size: 21px;
+    }
+
+    .final-message {
+        font-size: 19px;
+    }
+
+    .arabic-signoff {
+        font-size: 34px;
+    }
+
+    .footer-names {
+        font-size: 20px;
+    }
+
+}
+
+
+/* VERY SMALL SCREENS */
+
+@media screen and (max-width: 350px) {
+
+    .invitation-container {
+        padding: 50px 14px;
+    }
+
+    .opening-circle {
+        width: 145px;
+        height: 145px;
+    }
+
+    .opening-bismillah {
+        font-size: 28px;
+    }
+
+    .greeting-heading {
+        font-size: 37px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .arabic-ayah,
+    .arabic-hadith {
+        font-size: 26px;
+    }
+
+    .calendar-button {
+        font-size: 8px;
+        padding: 13px 12px;
+    }
+
+}

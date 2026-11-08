@@ -1,0 +1,1417 @@
+/* 1. ROOT VARIABLES */
+
+:root {
+    --background: #F8F4E9;
+    --powder-blue: #DCEAF3;
+    --powder-blue-border: #A9C4D8;
+
+    --navy: #172D4A;
+    --blue-muted: #526E89;
+
+    --champagne: #C5AD80;
+    --champagne-light: #E7D9BE;
+
+    --text: #243B53;
+    --muted: #64748B;
+
+    --white: #FFFEFA;
+
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --arabic: "Amiri", serif;
+    --sans: "Montserrat", sans-serif;
+}
+
+
+/* 2. GLOBAL STYLES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--serif);
+    overflow-x: hidden;
+}
+
+body.invitation-locked {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* 3. OPENING SCREEN */
+
+.opening-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--background);
+
+    cursor: pointer;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.opening-screen::before {
+    content: "";
+
+    position: absolute;
+    inset: 15px;
+
+    border: 1px solid var(--champagne-light);
+    pointer-events: none;
+}
+
+.opening-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+            rgba(197, 173, 128, 0.12),
+            transparent 25%),
+        radial-gradient(circle at 85% 80%,
+            rgba(169, 196, 216, 0.25),
+            transparent 28%);
+
+    pointer-events: none;
+}
+
+.opening-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.opening-circle {
+    width: 220px;
+    height: 220px;
+
+    border: 1px solid var(--powder-blue-border);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(220, 234, 243, 0.68);
+
+    box-shadow:
+        0 0 0 8px rgba(169, 196, 216, 0.14),
+        0 0 0 16px rgba(169, 196, 216, 0.08);
+
+    animation: circle-appear 1.5s ease both;
+}
+
+.opening-bismillah {
+    font-family: var(--arabic);
+    font-size: 43px;
+    color: var(--navy);
+}
+
+.opening-text {
+    margin-top: 32px;
+
+    font-family: var(--serif);
+    font-size: 20px;
+    font-style: italic;
+
+    letter-spacing: 2px;
+    color: var(--blue-muted);
+}
+
+.opening-star {
+    margin-top: 17px;
+    color: var(--champagne);
+    font-size: 23px;
+
+    animation: star-pulse 2s ease-in-out infinite;
+}
+
+.opening-screen.opening-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* 4. MAIN INVITATION */
+
+.invitation {
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity 1s ease;
+}
+
+.invitation.invitation-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.section-spacing {
+    padding: 75px 6%;
+    position: relative;
+}
+
+
+/* 5. INVITATION CONTAINERS */
+
+.invitation-container {
+    max-width: 1100px;
+    width: 100%;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    padding: 80px 65px;
+
+    background-color: var(--powder-blue);
+
+    border: 1px solid var(--powder-blue-border);
+    border-radius: 28px;
+
+    text-align: center;
+}
+
+.decorative-container::before {
+    content: "";
+
+    position: absolute;
+    inset: 12px;
+
+    border: 1px solid rgba(82, 110, 137, 0.16);
+
+    border-radius: 19px;
+
+    pointer-events: none;
+}
+
+
+/* 6. CORNER DECORATIONS */
+
+.corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+
+    border-color: var(--powder-blue-border);
+    border-style: solid;
+
+    opacity: 0.9;
+}
+
+.corner-tl {
+    top: 20px;
+    left: 20px;
+
+    border-width: 1px 0 0 1px;
+}
+
+.corner-tr {
+    top: 20px;
+    right: 20px;
+
+    border-width: 1px 1px 0 0;
+}
+
+.corner-bl {
+    bottom: 20px;
+    left: 20px;
+
+    border-width: 0 0 1px 1px;
+}
+
+.corner-br {
+    bottom: 20px;
+    right: 20px;
+
+    border-width: 0 1px 1px 0;
+}
+
+
+/* 7. WELCOME SECTION */
+
+.welcome-section {
+    padding-top: 65px;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+}
+
+.arabic-bismillah {
+    font-family: var(--arabic);
+    font-size: 55px;
+
+    color: var(--navy);
+
+    margin-bottom: 12px;
+}
+
+.translation {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-style: italic;
+
+    color: var(--muted);
+
+    margin-bottom: 32px;
+}
+
+.ornament-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    margin: 30px auto;
+}
+
+.ornament-divider span {
+    width: 115px;
+    height: 1px;
+
+    background-color: var(--powder-blue-border);
+}
+
+.ornament-divider i {
+    color: var(--blue-muted);
+    font-size: 25px;
+    font-style: normal;
+}
+
+.greeting-heading {
+    font-family: var(--serif);
+    font-size: clamp(48px, 7vw, 85px);
+
+    font-weight: 500;
+    color: var(--navy);
+
+    margin-top: 15px;
+}
+
+.greeting-subtitle {
+    font-family: var(--serif);
+    font-size: 27px;
+    font-style: italic;
+
+    color: var(--blue-muted);
+
+    margin-top: 8px;
+}
+
+.short-divider {
+    width: 65px;
+    height: 1px;
+
+    background-color: var(--champagne);
+
+    margin: 30px auto;
+}
+
+.invitation-message {
+    max-width: 700px;
+    margin: 0 auto;
+
+    font-family: var(--serif);
+    font-size: 25px;
+    font-style: italic;
+    line-height: 1.8;
+
+    color: var(--muted);
+}
+
+
+/* 8. SCROLL INDICATOR */
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 35px;
+
+    color: var(--muted);
+}
+
+.scroll-indicator span {
+    font-family: var(--sans);
+    font-size: 9px;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.scroll-indicator a {
+    font-family: var(--sans);
+    font-size: 30px;
+
+    color: var(--champagne);
+
+    transition: transform 0.3s ease;
+}
+
+.scroll-indicator a:hover {
+    transform: translateY(6px);
+}
+
+
+/* 9. SECTION HEADINGS */
+
+.section-heading {
+    position: relative;
+    z-index: 2;
+}
+
+.section-heading h2 {
+    font-family: var(--serif);
+    font-size: clamp(27px, 3.5vw, 37px);
+
+    font-weight: 600;
+
+    letter-spacing: 8px;
+
+    color: var(--navy);
+}
+
+
+/* 10. QURAN AYAT */
+
+.ayah-content {
+    margin-top: 45px;
+}
+
+.arabic-ayah {
+    font-family: var(--arabic);
+    font-size: clamp(32px, 4.5vw, 53px);
+
+    line-height: 2.1;
+
+    color: var(--navy);
+
+    margin-bottom: 40px;
+}
+
+.english-ayah {
+    max-width: 900px;
+    margin: 0 auto;
+
+    font-family: var(--serif);
+    font-size: clamp(23px, 3vw, 34px);
+
+    font-style: italic;
+    line-height: 1.8;
+
+    color: var(--navy);
+}
+
+.ayah-reference {
+    font-family: var(--serif);
+    font-size: 24px;
+
+    letter-spacing: 5px;
+
+    color: var(--muted);
+
+    margin-top: 30px;
+}
+
+
+/* 11. COUPLE SECTION */
+
+.couple-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 55px;
+
+    margin-top: 65px;
+}
+
+.person {
+    flex: 1;
+}
+
+.person-label {
+    font-family: var(--sans);
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: var(--champagne);
+
+    margin-bottom: 18px;
+}
+
+.person h3 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 55px);
+
+    font-weight: 500;
+
+    color: var(--navy);
+}
+
+.family-label {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+
+    color: var(--muted);
+
+    margin-top: 20px;
+}
+
+.father-name {
+    font-family: var(--serif);
+    font-size: 24px;
+
+    color: var(--navy);
+
+    margin-top: 8px;
+}
+
+.couple-symbol {
+    width: 65px;
+    height: 65px;
+
+    border: 1px solid var(--champagne-light);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--champagne);
+
+    flex-shrink: 0;
+}
+
+.couple-symbol span {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-style: italic;
+}
+
+.couple-message {
+    margin-top: 65px;
+
+    font-family: var(--serif);
+    font-size: 23px;
+    font-style: italic;
+
+    color: var(--muted);
+}
+
+
+/* 12. NIKAH SECTION */
+
+.nikah-intro {
+    font-family: var(--serif);
+    font-size: 23px;
+    font-style: italic;
+
+    color: var(--muted);
+
+    margin-top: 30px;
+}
+
+.nikah-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 65px;
+
+    margin: 55px auto;
+}
+
+.detail-item {
+    min-width: 210px;
+}
+
+.detail-icon {
+    font-size: 30px;
+    color: var(--champagne);
+}
+
+.detail-label {
+    font-family: var(--sans);
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: var(--champagne);
+
+    margin-top: 17px;
+}
+
+.detail-item h3 {
+    font-family: var(--serif);
+    font-size: 34px;
+
+    color: var(--navy);
+
+    margin-top: 12px;
+}
+
+.detail-separator {
+    width: 1px;
+    height: 100px;
+
+    background-color: var(--powder-blue-border);
+}
+
+.calendar-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 16px 28px;
+
+    border: 1px solid var(--champagne);
+    border-radius: 3px;
+
+    font-family: var(--sans);
+    font-size: 11px;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--navy);
+
+    background: transparent;
+
+    transition: all 0.3s ease;
+}
+
+.calendar-button span {
+    font-size: 19px;
+}
+
+.calendar-button:hover {
+    background-color: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+}
+
+
+/* 13. VENUE SECTION */
+
+.venue-content {
+    margin-top: 45px;
+}
+
+.venue-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+
+    border: 1px solid var(--champagne-light);
+    border-radius: 50%;
+
+    font-size: 30px;
+
+    color: var(--champagne);
+}
+
+.venue-content h3 {
+    font-family: var(--serif);
+    font-size: 38px;
+
+    color: var(--navy);
+
+    margin-top: 25px;
+}
+
+.venue-content p {
+    font-family: var(--serif);
+    font-size: 23px;
+    font-style: italic;
+
+    color: var(--muted);
+
+    margin-top: 15px;
+}
+
+.venue-note {
+    display: block;
+
+    margin-top: 20px;
+
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+
+    color: var(--champagne);
+}
+
+
+/* 14. FINAL BLESSING */
+
+.blessing-content {
+    margin-top: 45px;
+}
+
+.arabic-hadith {
+    font-family: var(--arabic);
+    font-size: clamp(33px, 4.5vw, 55px);
+
+    line-height: 2;
+
+    color: var(--navy);
+}
+
+.english-hadith {
+    max-width: 900px;
+    margin: 35px auto 0;
+
+    font-family: var(--serif);
+    font-size: clamp(23px, 3vw, 34px);
+
+    font-style: italic;
+    line-height: 1.8;
+
+    color: var(--navy);
+}
+
+.hadith-reference {
+    font-family: var(--serif);
+    font-size: 23px;
+
+    letter-spacing: 5px;
+
+    color: var(--muted);
+
+    margin-top: 35px;
+}
+
+.bottom-divider {
+    margin-top: 55px;
+}
+
+.bottom-divider i {
+    color: var(--champagne);
+}
+
+.heart-symbol {
+    font-size: 29px;
+    color: #A9C4D8;
+
+    margin: 40px 0 25px;
+}
+
+.final-message {
+    max-width: 780px;
+    margin: 0 auto;
+
+    font-family: var(--serif);
+    font-size: 25px;
+    font-style: italic;
+
+    line-height: 2;
+
+    color: var(--muted);
+
+    white-space: pre-line;
+}
+
+.couple-signature {
+    font-family: var(--serif);
+    font-size: 26px;
+
+    letter-spacing: 5px;
+
+    color: var(--navy);
+
+    margin-top: 35px;
+}
+
+
+/* 15. FOOTER */
+
+.invitation-footer {
+    text-align: center;
+
+    padding: 55px 20px 65px;
+
+    background-color: var(--background);
+}
+
+.arabic-signoff {
+    font-family: var(--arabic);
+    font-size: 40px;
+
+    color: var(--navy);
+}
+
+.footer-divider {
+    color: var(--champagne);
+    font-size: 23px;
+
+    margin: 15px 0;
+}
+
+.footer-names {
+    font-family: var(--serif);
+    font-size: 23px;
+
+    letter-spacing: 3px;
+
+    color: var(--navy);
+}
+
+.footer-note {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-style: italic;
+
+    color: var(--muted);
+
+    margin-top: 10px;
+}
+
+
+/* 16. ANIMATIONS */
+
+@keyframes circle-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes star-pulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   WEDDING INVITATION
+   Botanical Background Decorations
+========================================== */
+
+/* Keep the existing page design unchanged */
+
+body {
+    position: relative;
+}
+
+/* Decorative botanical artwork */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 10;
+
+    opacity: 0.28;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 1000' fill='none'%3E%3Cg stroke='%23A9C4D8' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M0 180 Q75 120 130 35 Q175 -10 235 0'/%3E%3Cpath d='M75 119 Q35 55 12 74 Q10 112 75 119Z'/%3E%3Cpath d='M125 44 Q110 0 150 12 Q164 42 125 44Z'/%3E%3Cpath d='M178 13 Q195 -25 220 0 Q210 30 178 13Z'/%3E%3Cpath d='M1440 800 Q1360 855 1310 950 Q1265 1000 1200 1000'/%3E%3Cpath d='M1365 870 Q1405 930 1430 908 Q1435 870 1365 870Z'/%3E%3Cpath d='M1318 940 Q1330 990 1290 982 Q1270 950 1318 940Z'/%3E%3Cpath d='M1260 984 Q1230 1020 1210 990 Q1225 960 1260 984Z'/%3E%3C/g%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+
+/* Soft botanical atmosphere */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 9;
+
+    opacity: 0.35;
+
+    background:
+        radial-gradient(ellipse at 5% 15%,
+            rgba(169, 196, 216, 0.16),
+            transparent 28%),
+        radial-gradient(ellipse at 95% 85%,
+            rgba(169, 196, 216, 0.19),
+            transparent 30%),
+        radial-gradient(ellipse at 90% 10%,
+            rgba(197, 173, 128, 0.13),
+            transparent 25%);
+}
+
+
+/* Mobile decoration adjustment */
+
+@media screen and (max-width: 768px) {
+
+    body::before {
+        opacity: 0.20;
+        background-size: 140% 100%;
+        background-position: center;
+    }
+
+    body::after {
+        opacity: 0.25;
+    }
+
+}
+
+
+/* Small screen adjustment */
+
+@media screen and (max-width: 480px) {
+
+    body::before {
+        opacity: 0.16;
+    }
+
+}
+
+/* ==========================================
+   SMOOTH SCROLL REVEAL ANIMATIONS
+========================================== */
+
+/* Initial hidden state */
+
+body.reveal-ready .invitation-container {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(3px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1s ease;
+}
+
+/* Visible state */
+
+body.reveal-ready .invitation-container.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Respect accessibility preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body.reveal-ready .invitation-container {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+    }
+
+}
+
+/* =========================================
+   FIX: OPENING SCREEN CONTENT VISIBILITY
+========================================= */
+
+.opening-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    isolation: isolate;
+}
+
+.opening-decoration {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.opening-content {
+    position: relative;
+    z-index: 5;
+
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    padding: 20px;
+
+    text-align: center;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.opening-circle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.opening-bismillah,
+.opening-text,
+.opening-star {
+    display: block !important;
+
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.opening-bismillah {
+    color: var(--navy) !important;
+    font-family: var(--arabic);
+}
+
+.opening-text {
+    color: var(--blue-muted) !important;
+}
+
+/* =========================================
+   OPENING SCREEN - BOTANICAL BACKGROUND
+========================================= */
+
+#openingScreen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background-image: url("assets/images/opening-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    isolation: isolate;
+    z-index: 9999;
+}
+
+/* Centre Bismillah circle */
+
+#openingScreen .opening-circle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 10;
+
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Bismillah text */
+
+#openingScreen .opening-bismillah {
+    position: relative;
+    z-index: 11;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Opening instruction */
+
+#openingScreen .opening-text {
+    position: relative;
+    z-index: 10;
+    visibility: visible;
+    opacity: 1;
+}
+
+#invitation {
+    position: relative;
+
+    background-color: #F8F4E9 !important;
+
+    background-image:
+        linear-gradient(rgba(248, 244, 233, 0.82),
+            rgba(248, 244, 233, 0.82)),
+        url("assets/images/opening-background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+#invitation .invitation-container {
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+
+    body::before {
+        background-image:
+            url("assets/images/mobile-background.png");
+
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+
+}
+
+@media screen and (min-width: 769px) {
+
+    body::before {
+        background-image:
+            url("assets/images/opening-background.png");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #openingScreen {
+        background:
+            linear-gradient(rgba(248, 244, 233, 0.16),
+                rgba(248, 244, 233, 0.16)),
+            url("assets/images/mobile-background.png") center center / cover no-repeat !important;
+
+        min-height: 100vh;
+        min-height: 100svh;
+
+        position: fixed;
+        inset: 0;
+
+        width: 100%;
+        z-index: 9999;
+    }
+
+}
+
+.opening-medallion {
+    width: 300px;
+    height: 300px;
+    background: transparent;
+}
+
+.opening-medallion img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Opening Screen Content */
+
+.opening-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Calligraphy Medallion */
+
+.opening-medallion {
+    width: 340px;
+    height: 340px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* Opening Text */
+
+.opening-text {
+    margin: 12px 0 20px;
+    color: #526E89;
+    font-size: 22px;
+    font-style: italic;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Golden Star */
+
+.opening-star {
+    display: block;
+    color: #C5AD80;
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .opening-medallion {
+        width: 280px;
+        height: 280px;
+    }
+
+    .opening-text {
+        font-size: 19px;
+        letter-spacing: 1.5px;
+    }
+
+    .opening-star {
+        font-size: 29px;
+    }
+
+}
+
+/* Opening Instruction with Golden Lines */
+
+.opening-instruction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 15px auto 20px;
+    width: 100%;
+}
+
+.opening-text {
+    margin: 0;
+    color: #526E89;
+    font-size: 20px;
+    font-style: italic;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.gold-line {
+    width: 45px;
+    height: 1px;
+    background: linear-gradient(to right,
+            transparent,
+            #C5AD80);
+}
+
+.gold-line:last-child {
+    background: linear-gradient(to left,
+            transparent,
+            #C5AD80);
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+    .opening-instruction {
+        gap: 10px;
+    }
+
+    .opening-text {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .gold-line {
+        width: 25px;
+    }
+}
+
+/* =================================
+   GOOGLE MAPS VENUE BUTTON
+================================= */
+
+.venue-map-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    margin-top: 35px;
+    padding: 17px 30px;
+
+    color: #526E89;
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid #C5AD80;
+    border-radius: 3px;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    transition: all 0.35s ease;
+}
+
+.venue-map-button:hover {
+     background-color: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(23, 45, 74, 0.12);
+}
+
+.map-icon {
+    font-size: 23px;
+    color: #C5AD80;
+}
+
+.venue-map-button:hover .map-icon {
+    color: #fff;
+}
+
+.map-arrow {
+    font-size: 17px;
+    transition: transform 0.3s ease;
+}
+
+.venue-map-button:hover .map-arrow {
+    transform: translate(3px, -3px);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+    .venue-map-button {
+        margin-top: 27px;
+        padding: 15px 17px;
+        gap: 9px;
+        font-size: 9px;
+        letter-spacing: 1.2px;
+    }
+}
+/* LANGUAGE SWITCHER */
+/* LANGUAGE SWITCHER */
+
+.language-switcher {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 9px 15px;
+    background: rgba(248, 244, 233, 0.96);
+    border: 1px solid #C5AD80;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.lang-btn {
+    border: none;
+    background: transparent;
+    color: #526E89;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 3px;
+    transition: 0.3s ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    color: #A78B59;
+}
+
+.language-switcher span {
+    color: #C5AD80;
+}
+
+@media (max-width: 480px) {
+    .language-switcher {
+        top: 12px;
+        right: 12px;
+        gap: 7px;
+        padding: 7px 11px;
+    }
+}
